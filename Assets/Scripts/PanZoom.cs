@@ -1,9 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 
-public class PanZoomRotate : MonoBehaviour
+public class PanZoom : MonoBehaviour
 {
     [SerializeField]
     public float panSpeed = 5f;
@@ -12,19 +10,22 @@ public class PanZoomRotate : MonoBehaviour
     [SerializeField]
     public float rotateSpeed = 5f;
     [SerializeField]
-    public float zoomInMax = 40f;
+    public float zoomInMax = 10f;
     [SerializeField]
     public float zoomOutMax = 90f;
 
+    [SerializeField]
+    private float lookSpeed = 10f;
+    
     private CinemachineInputProvider inputProvider;
-    private CinemachineVirtualCamera virtualCamera;
+    private CinemachineFreeLook freeLookCamera;
     private Transform cameraTransform;
 
     private void Awake()
     {
         inputProvider = GetComponent<CinemachineInputProvider>();
-        virtualCamera = GetComponent<CinemachineVirtualCamera>();
-        cameraTransform = virtualCamera.VirtualCameraGameObject.transform;
+        freeLookCamera = GetComponent<CinemachineFreeLook>();
+        cameraTransform = freeLookCamera.VirtualCameraGameObject.transform;
     }
 
     public void Update()
@@ -44,9 +45,9 @@ public class PanZoomRotate : MonoBehaviour
 
     public void ZoomScreen(float increment)
     {
-        float fov = virtualCamera.m_Lens.FieldOfView;
+        float fov = freeLookCamera.m_Lens.FieldOfView;
         float target = Mathf.Clamp(fov + increment, zoomInMax, zoomOutMax);
-        virtualCamera.m_Lens.FieldOfView = Mathf.Lerp(fov, target, zoomSpeed * Time.deltaTime);
+        freeLookCamera.m_Lens.FieldOfView = Mathf.Lerp(fov, target, zoomSpeed * Time.deltaTime);
     }
 
     public void PanScreen(float x, float y)

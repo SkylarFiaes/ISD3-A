@@ -24,19 +24,19 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Rotate",
+                    "name": "Player Movement",
                     "type": "Button",
-                    "id": "a23bfbd6-0b62-45e5-a064-9e7fade7afeb",
+                    "id": "7d5004d1-37e7-43bb-84ea-162efab73455",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Player Movement",
-                    "type": "Button",
-                    "id": "7d5004d1-37e7-43bb-84ea-162efab73455",
-                    "expectedControlType": "Button",
+                    "name": "Rotation",
+                    "type": "PassThrough",
+                    "id": "5439e06b-69f2-475c-b26c-f2effe10bde2",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -67,23 +67,23 @@
                 },
                 {
                     "name": "",
-                    "id": "ad2606b9-f624-4c0d-8aa5-81b6c84e7258",
-                    "path": "<Mouse>/middleButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Rotate",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "6d381c2b-151e-4174-865e-2cb95e91e332",
                     "path": "<Mouse>/leftButton",
                     "interactions": "Press",
                     "processors": "",
                     "groups": "",
                     "action": "Player Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a632b93a-7ee5-4b7d-9e59-feeb358ee696",
+                    "path": "<Mouse>/delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Rotation",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
